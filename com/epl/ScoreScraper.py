@@ -14,9 +14,8 @@ from com.epl.Match import Match
 
 def parse_scores(response):
     """
-
-    :param response:
-    :return:
+    This method parses the fixture date, results and venue from the response
+    :param response: bs4.BeautifulSoup object
     """
     print('-' * 150)
     print('-' * 150)
@@ -51,6 +50,13 @@ def parse_scores(response):
 
 
 def determine_result(score, team, is_home):
+    """
+    This method will determine the result as W=Win, L=Loss or D=Draw provided the score and team
+    and update the team reference passed to this function
+    :param score: bs4.Element.Tag object
+    :param team: com.epl.Team object
+    :param is_home: boolean
+    """
     if is_home:
         if int(score.text[0:1]) > int(score.text[2:]):
             team.result = 'W'
