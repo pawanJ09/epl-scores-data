@@ -1,8 +1,13 @@
 # English Premier League Historical Scores
 
 This is a utility app that returns the scores since inception of English Premier League in 1992-93. 
-This app is fetching the historical data by using Web scraping. I have used BeautifulSoup 
-library to achieve this as requests-html could not be used with Python version 3.9.
+This app is fetching the historical data by using Web scraping. This project has dependency on 
+Selenium as we need to fetch the HTML content for the EPL season's data being fetched using 
+infinite scrolling. Another key dependency is on BeautifulSoup library to parse the HTML page 
+source.
+
+Note: This app is currently compatible with MacOS Safari driver hence cannot be run in 
+containers or any other OS.
 
 ## Requirements
 
@@ -11,11 +16,9 @@ For building and running the application you need:
 - [Python3](https://www.python.org/downloads/)
 
 ```shell
-python3 -m pip install requests
+python3 -m pip install selenium
 
 python3 -m pip install bs4
-
-python3 -m pip install lxml
 ```
 
 ## Running the application locally
